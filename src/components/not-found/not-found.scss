@@ -1,0 +1,32 @@
+.page-single-2 {
+    background: url('../../asset/error-bg.jpg') no-repeat;
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+  }
+  
+  .middle-content {
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 45px 0 145px 0;
+  }
+  
+  .middle-content .md-logo {
+    margin-bottom: 145px;
+  }
+  .middle-content h1 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
+  @import "~bootstrap/scss/bootstrap";

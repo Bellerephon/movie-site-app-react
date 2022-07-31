@@ -1,0 +1,13 @@
+.change-theme {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    color: "#2db4ea";
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+@import "~bootstrap/scss/bootstrap";

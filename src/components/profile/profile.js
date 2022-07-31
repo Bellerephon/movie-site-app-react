@@ -8,19 +8,28 @@ import { useUserAuth } from '../../contexts/user-auth-context';
 import demoAvatar from '../../asset/demo-avatar.png';
 
 export const Profile = () => {
-    const [newValue, setNewValue] = useState({});
+    const { user } = useUserAuth();
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);
     const [downloadURL, setDownloadURL] = useState('');
     const [userData, setUserData] = useState(null);
-    const { user } = useUserAuth();
+    const [value, setValue] = useState({
+        firstName: '',
+        lastName: '',
+        email: user.email,
+        phoneNumber: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        aboutMe: '',
+    });
 
     useEffect(() => {
         const userId = user.uid;
         getCollectionDetails(userId, "users")
             .then(res => setUserData(res));
     }, [user.uid]);
-
 
     const uploadAvatar = () => {
         const uniqueKey = "123" + Date.now();
@@ -52,10 +61,10 @@ export const Profile = () => {
     const handleEditProfile = (e) => {
         e.preventDefault();
         if (downloadURL !== '') {
-            Object.assign(newValue, { photoURL: downloadURL });
+            Object.assign(value, { photoURL: downloadURL });
         }
         try {
-            editCollection(userData.id, "users", newValue);
+            editCollection(userData.id, "users", value);
             alert("success")
         } catch (err) {
             alert("Not Sucssee")
@@ -63,7 +72,7 @@ export const Profile = () => {
     }
 
     const changeHandler = (e) => {
-        setNewValue(state => ({
+        setValue(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
@@ -80,26 +89,24 @@ export const Profile = () => {
             {userData &&
                 <Form onSubmit={handleEditProfile}>
                     <Row>
-                        <Col xs={12} md={8} className="p-3">
-
+                        <Col xs={10} md={9} className="p-3">
                             <Row className="mb-3">
                                 <Form.Group as={Col}>
                                     <Form.Label>First Name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={userData.firstName} 
                                         name="firstName"
                                         id="id"
-                                        value={newValue.firstName}
+                                        value={value.firstName}
                                         onChange={changeHandler} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
                                     <Form.Label>Last Name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={userData.lastName}
+                                        // defaultValue={userData.lastName}
                                         name="lastName"
-                                        value={newValue.lastName}
+                                        value={value.lastName}
                                         onChange={changeHandler} />
                                 </Form.Group>
                             </Row>
@@ -108,20 +115,20 @@ export const Profile = () => {
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control
                                         type="email"
-                                        defaultValue={userData.email}
+                                        // defaultValue={userData.email}
                                         id="email"
                                         name="email"
-                                        value={newValue.email}
+                                        value={value.email}
                                         onChange={changeHandler} />
                                 </Form.Group>
                                 <Form.Group as={Col}>
                                     <Form.Label>Phone Number</Form.Label>
                                     <Form.Control
                                         type="number"
-                                        defaultValue={userData.phoneNumber}
+                                        // defaultValue={userData.phoneNumber}
                                         id="phoneNumber"
                                         name="phoneNumber"
-                                        value={newValue.phoneNumber}
+                                        value={value.phoneNumber}
                                         onChange={changeHandler} />
                                 </Form.Group>
                             </Row>
@@ -130,10 +137,10 @@ export const Profile = () => {
                                 <Form.Label>Address</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    defaultValue={userData.address}
+                                    // defaultValue={userData.address}
                                     id="address"
                                     name="address"
-                                    value={newValue.address}
+                                    value={value.address}
                                     onChange={changeHandler} />
                             </Form.Group>
 
@@ -141,11 +148,11 @@ export const Profile = () => {
                                 <Form.Group as={Col}>
                                     <Form.Label>City</Form.Label>
                                     <Form.Control
-                                        defaultValue={userData.city} 
+                                        // defaultValue={userData.city} 
                                         id="city"
                                         name="city"
                                         onChange={changeHandler}
-                                        />
+                                    />
                                 </Form.Group>
 
                                 <Form.Group as={Col}>
@@ -153,8 +160,10 @@ export const Profile = () => {
                                     <Form.Select
                                         onChange={changeHandler}
                                         name="state"
-                                        value={newValue.state}
-                                        defaultValue="Sofia City">
+                                        id="state"
+                                        value={value.state}
+                                    // defaultValue="Sofia City"
+                                    >
                                         {
                                             states.map((state, index) => {
                                                 return (<option key={index} value={state.name}>{state.name}</option>)
@@ -167,9 +176,9 @@ export const Profile = () => {
                                     <Form.Label>Zip</Form.Label>
                                     <Form.Control
                                         type="number"
-                                        defaultValue={userData.zip}
+                                        // defaultValue={userData.zip}
                                         name="zip"
-                                        value={newValue.zip}
+                                        value={value.zip}
                                         onChange={changeHandler} />
                                 </Form.Group>
                             </Row>
@@ -179,27 +188,27 @@ export const Profile = () => {
                                 <Form.Control
                                     as="textarea"
                                     rows={5}
-                                    defaultValue={userData.aboutMe}
+                                    // defaultValue={userData.aboutMe}
                                     id="aboutMe"
                                     name="aboutMe"
-                                    onChange={changeHandler} 
+                                    onChange={changeHandler}
                                 />
                             </Form.Group>
 
                             <Button
-                                style={{ background: "#2db4ea", border: 0, width: "-webkit-fill-available" }}
+                                style={{ background: "#2db4ea", border: 0 }}
                                 type="submit">
                                 Update Profile
                             </Button>
                         </Col>
 
-                        <Col xs={6} md={4} className="p-3">
+                        <Col xs={6} md={2} className="p-3">
                             <Form.Group className="mb-3">
                                 <Form.Label>Avatar</Form.Label>
-                                <Card style={{ width: '250px', height: '250px' }}>
+                                <Card style={{ width: '275px', height: '275px' }}>
                                     <Card.Img
                                         variant="top"
-                                        src={userData.photoURL || demoAvatar}
+                                        src={(userData.photoURL || downloadURL) || demoAvatar}
                                     />
                                     <Card.Body>
                                         <Form.Control
@@ -211,19 +220,19 @@ export const Profile = () => {
                                         </Form.Control>
                                         <Button
                                             className="float-bottom"
-                                            style={{ background: "#2db4ea", border: 0 }}
+                                            style={{ background: "#2db4ea", border: 0, width: "-webkit-fill-available" }}
                                             onClick={uploadAvatar}>
                                             Upload Image
                                         </Button>
                                         <Button
                                             className="float-bottom"
-                                            style={{ background: "#ff3333", border: 0 }}
+                                            style={{ background: "#ff3333", border: 0, width: "-webkit-fill-available" }}
                                             onClick={deletevatar}>
                                             Delete Image
                                         </Button>
-                                        {progress !== 0 
-                                        ? <ProgressBar className="mb-3" now={progress} label={`${progress}%`} /> 
-                                        : ''
+                                        {progress !== 0
+                                            ? <ProgressBar className="mb-3" now={progress} label={`${progress}%`} />
+                                            : ''
                                         }
                                     </Card.Body>
                                 </Card>

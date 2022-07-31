@@ -11,7 +11,14 @@ export const EditMovie = ({
     handleClose,
 }) => {
 
-    const [newValue, setNewValue] = useState({});
+    const [value, setValue] = useState({
+        Title: '',
+        Year: null,
+        Genre: '',
+        Director: '',
+        Writers: '',
+        Description: '',
+    });
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);
     const [downloadURL, setDownloadURL] = useState('');
@@ -19,14 +26,14 @@ export const EditMovie = ({
     const handleEditMovie = (e) => {
         e.preventDefault();
         if(downloadURL !== ''){
-            Object.assign(newValue, { Poster: downloadURL });
+            Object.assign(value, { Poster: downloadURL });
         }
-        console.log(newValue);
-        editCollection(movie.id, "movies", newValue);
+        console.log(value);
+        editCollection(movie.id, "movies", value);
     }
 
     const changeHandler = (e) => {
-        setNewValue(state => ({
+        setValue(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
@@ -109,7 +116,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Title}
                                         id="Title"
                                         name="Title"
-                                        value={newValue.Title}
+                                        value={value.Title}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>
@@ -120,7 +127,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Year}
                                         id="Year"
                                         name="Year"
-                                        value={newValue.Year}
+                                        value={value.Year}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>
@@ -131,7 +138,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Genre}
                                         id="Genre"
                                         name="Genre"
-                                        value={newValue.Genre}
+                                        value={value.Genre}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>
@@ -142,7 +149,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Director}
                                         id="Director"
                                         name="Director"
-                                        value={newValue.Director}
+                                        value={value.Director}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>
@@ -153,7 +160,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Writers}
                                         id="Writers"
                                         name="Writers"
-                                        value={newValue.Writers}
+                                        value={value.Writers}
                                         onChange={changeHandler}
                                     />
                                     <Form.Control.Feedback type="invalid">
@@ -168,7 +175,7 @@ export const EditMovie = ({
                                         defaultValue={movie.Description}
                                         id="Description"
                                         name="Description"
-                                        value={newValue.Description}
+                                        value={value.Description}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>

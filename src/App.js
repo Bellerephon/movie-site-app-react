@@ -1,6 +1,3 @@
-
-
-
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { Routes, Route } from 'react-router-dom';
@@ -17,7 +14,7 @@ import { Catalog } from './components/catalog/catalog';
 import { UserAuthContextProvider } from './contexts/user-auth-context';
 import { MovieContext } from './contexts/movie-context';
 import { useAllMovies } from './hooks/useAllMovies';
-
+import './App.scss';
 
 function App() {
 

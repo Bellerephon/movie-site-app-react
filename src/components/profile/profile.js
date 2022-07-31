@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { editCollection, getCollectionDetails } from "../../lib/init-firebase";
 import { states } from './states';
 import { useUserAuth } from '../../contexts/user-auth-context';
+import demoAvatar from '../../asset/demo-avatar.png';
 
 export const Profile = () => {
     const [newValue, setNewValue] = useState({});
@@ -167,7 +168,7 @@ export const Profile = () => {
                                     <Form.Control
                                         type="number"
                                         defaultValue={userData.zip}
-                                        name="state"
+                                        name="zip"
                                         value={newValue.zip}
                                         onChange={changeHandler} />
                                 </Form.Group>
@@ -186,7 +187,7 @@ export const Profile = () => {
                             </Form.Group>
 
                             <Button
-                                style={{ background: "#2db4ea", border: 0 }}
+                                style={{ background: "#2db4ea", border: 0, width: "-webkit-fill-available" }}
                                 type="submit">
                                 Update Profile
                             </Button>
@@ -198,7 +199,7 @@ export const Profile = () => {
                                 <Card style={{ width: '250px', height: '250px' }}>
                                     <Card.Img
                                         variant="top"
-                                        src={userData.photoURL ? userData.photoURL : downloadURL}
+                                        src={userData.photoURL || demoAvatar}
                                     />
                                     <Card.Body>
                                         <Form.Control

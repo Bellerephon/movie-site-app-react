@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDoc, updateDoc, doc, addDoc, deleteDoc, setDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDoc, updateDoc, doc, addDoc, deleteDoc, setDoc, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
@@ -37,6 +37,18 @@ export const getCollectionDetails = async (id, collect) => {
   if (data === null || data === undefined) return null  
 
   return { id, ...data }
+}
+
+// get Ordered and limit movies
+export const getLastRecords = async (collect) => {
+  const dataObj = [];
+  const collectionRef = collection(db, collect);
+  const q = query(collectionRef, orderBy("CreatedDate"), limit(3));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    dataObj.push(doc.data());
+  });
+  return dataObj; 
 }
 
 // Create Single movie

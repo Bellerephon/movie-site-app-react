@@ -1,11 +1,16 @@
 import { Container, Carousel, Row } from "react-bootstrap";
 import { CatalogItem } from "../catalog/catalog-item/catalog-item";
-import { useContext } from "react";
-import { MovieContext } from "../../contexts/movie-context";
-
+import { useState, useEffect } from "react";
+import { getLastRecords } from "../../lib/init-firebase";
 
 export const Home = () => {
-    const { movies } = useContext(MovieContext);
+
+    const [orderMovies, setOrderMovies] = useState();
+
+    useEffect(() => {
+        getLastRecords("movies")
+            .then(res => setOrderMovies(res));
+    }, []);
     
     return (
         <Container>
@@ -53,11 +58,10 @@ export const Home = () => {
             </Carousel>
 
             <Row>
-                {movies ?
-                    movies.map((movie) => (
+                {orderMovies ?
+                    orderMovies.map((movie, inedex) => (
                         <CatalogItem
-                            key={movie.id}
-                            id={movie.id}
+                            key={inedex}
                             Title={movie.Title}
                             Poster={movie.Poster}
                             Year={movie.Year}

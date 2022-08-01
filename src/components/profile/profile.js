@@ -7,7 +7,7 @@ import { states } from './states';
 import { useUserAuth } from '../../contexts/user-auth-context';
 import demoAvatar from '../../asset/demo-avatar.png';
 
-export const Profile = () => {
+const Profile = () => {
     const { user } = useUserAuth();
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);
@@ -244,3 +244,5 @@ export const Profile = () => {
         </Container>
     );
 }
+
+export default Profile;

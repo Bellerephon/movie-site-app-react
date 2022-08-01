@@ -5,7 +5,7 @@ import { CatalogItem } from "./catalog-item/catalog-item";
 import { useContext } from "react";
 import { MovieContext } from "../../contexts/movie-context";
 
-export const Catalog = () => {
+const Catalog = () => {
     const { movies } = useContext(MovieContext);
 
     return (
@@ -38,3 +38,5 @@ export const Catalog = () => {
         </Container>
     )
 }
+
+export default Catalog;

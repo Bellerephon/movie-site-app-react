@@ -1,15 +1,15 @@
 import { Container } from "react-bootstrap"
 
 export const About = () => {
-    return(
+    return (
         <Container>
             <>
                 <h1 className='text-center'>Project Detail</h1>
-                
+
                 <p>This project developed by Valentin Simeonov</p>
 
                 <h4>Used Technologies</h4>
-                <ul>
+                <ul style={{listStyle: "none"}}>
                     <li>Html</li>
                     <li>Css</li>
                     <li>React</li>
@@ -19,18 +19,17 @@ export const About = () => {
                 </ul>
 
                 <h4>Install - Run</h4>
-                <div class="card">
+                <div class="card" style={{margin: "0 auto", float: "none"}}>
                     <div class="card-body fw-bold text-dark">
-                        git clone https://github.com/nejlasahin/movie-app-with-react.git <br />
+                        git clone https://github.com/Bellerephon/movie-site-app-react.git <br />
                         <br />
-                        $ cd  movie-app-with-react<br />
+                        $ cd  movie-site-project-react<br />
                         <br />
                         $ npm install <br />
                         $ npm start <br />
-
                     </div>
                 </div>
-        </>
+            </>
         </Container>
     );
 }

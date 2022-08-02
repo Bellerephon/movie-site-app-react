@@ -44,10 +44,9 @@ export const Header = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="me-auto" variant="pills">
               <Nav.Link as={Link} to="/catalog">All Movies</Nav.Link>
               <Nav.Link as={Link} to="/favourites">Favourites</Nav.Link>
-              <Nav.Link as={Link} to="/watchlist">Watchlist</Nav.Link>
               <Nav.Link as={Link} to="/about">About</Nav.Link>
               <Nav.Link as={Link} to="/contacts">Contact</Nav.Link>
             </Nav>

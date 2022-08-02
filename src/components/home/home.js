@@ -11,6 +11,8 @@ export const Home = () => {
         getLastRecords("movies")
             .then(res => setOrderMovies(res));
     }, []);
+
+    console.log(orderMovies);
     
     return (
         <Container>
@@ -59,9 +61,10 @@ export const Home = () => {
 
             <Row>
                 {orderMovies ?
-                    orderMovies.map((movie, inedex) => (
+                    orderMovies.map((movie) => (
                         <CatalogItem
-                            key={inedex}
+                            key={movie.id}
+                            id={movie.id}
                             Title={movie.Title}
                             Poster={movie.Poster}
                             Year={movie.Year}

@@ -2,6 +2,7 @@
 import { Col, Card, Button } from "react-bootstrap";
 import emptyImage from '../../../asset/no-poster.png'
 import { Link } from "react-router-dom";
+import './catalog-item.scss';
 
 export const CatalogItem = ({
     id,
@@ -14,7 +15,7 @@ export const CatalogItem = ({
 }) => {
     return (
         <Col sm={12} md={6} lg={3}>
-            <Card className="text-center" style={{ color: "#000", width: "19rem", marginTop: "25px" }}>
+            <Card className="card" style={{ color: "#000", width: "19rem", marginTop: "25px" }}>
                 <Card.Header>{Genre}</Card.Header>
                 <Card.Img variant="top" src={Poster || emptyImage} />
                 <Card.Body>

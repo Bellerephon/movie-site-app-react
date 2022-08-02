@@ -13,7 +13,7 @@ export const EditMovie = ({
 
     const [value, setValue] = useState({
         Title: '',
-        Year: null,
+        Year: '',
         Genre: '',
         Director: '',
         Writers: '',
@@ -113,7 +113,7 @@ export const EditMovie = ({
                                     <Form.Label>Movie Title</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={movie.Title}
+                                        // defaultValue={movie.Title}
                                         id="Title"
                                         name="Title"
                                         value={value.Title}
@@ -124,7 +124,7 @@ export const EditMovie = ({
                                     <Form.Label>Movie Year</Form.Label>
                                     <Form.Control
                                         type="number"
-                                        defaultValue={movie.Year}
+                                        // defaultValue={movie.Year}
                                         id="Year"
                                         name="Year"
                                         value={value.Year}
@@ -135,7 +135,7 @@ export const EditMovie = ({
                                     <Form.Label>Genre</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={movie.Genre}
+                                        // defaultValue={movie.Genre}
                                         id="Genre"
                                         name="Genre"
                                         value={value.Genre}
@@ -146,7 +146,7 @@ export const EditMovie = ({
                                     <Form.Label>Director</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={movie.Director}
+                                        // defaultValue={movie.Director}
                                         id="Director"
                                         name="Director"
                                         value={value.Director}
@@ -157,7 +157,7 @@ export const EditMovie = ({
                                     <Form.Label>Writers</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        defaultValue={movie.Writers}
+                                        // defaultValue={movie.Writers}
                                         id="Writers"
                                         name="Writers"
                                         value={value.Writers}
@@ -172,7 +172,7 @@ export const EditMovie = ({
                                     <Form.Control
                                         as="textarea"
                                         rows={5}
-                                        defaultValue={movie.Description}
+                                        // defaultValue={movie.Description}
                                         id="Description"
                                         name="Description"
                                         value={value.Description}

@@ -46,7 +46,7 @@ export const getLastRecords = async (collect) => {
   const q = query(collectionRef, orderBy("CreatedDate"), limit(3));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    dataObj.push(doc.data());
+    dataObj.push({ id: doc.id, ...doc.data() });
   });
   return dataObj; 
 }

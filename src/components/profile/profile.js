@@ -2,7 +2,7 @@ import { Container, Row, Col, PopoverHeader, Form, Button, Card, ProgressBar } f
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../lib/init-firebase";
 import { useState, useEffect } from "react";
-import { editCollection, getCollectionDetails } from "../../lib/init-firebase";
+import { editCollection, getCollectionDetails, auth } from "../../lib/init-firebase";
 import { states } from './states';
 import { useUserAuth } from '../../contexts/user-auth-context';
 import demoAvatar from '../../asset/demo-avatar.png';
@@ -13,6 +13,8 @@ const Profile = () => {
     const [imageUpload, setImageUpload] = useState(null);
     const [downloadURL, setDownloadURL] = useState('');
     const [userData, setUserData] = useState(null);
+    if(userData){console.log(userData);}
+    
     const [value, setValue] = useState({
         firstName: '',
         lastName: '',
@@ -29,7 +31,7 @@ const Profile = () => {
         const userId = user.uid;
         getCollectionDetails(userId, "users")
             .then(res => setUserData(res));
-    }, [user.uid]);
+    }, []);
 
     const uploadAvatar = () => {
         const uniqueKey = "123" + Date.now();
@@ -96,6 +98,7 @@ const Profile = () => {
                                     <Form.Control
                                         type="text"
                                         name="firstName"
+                                        // defaultValue={userData.Title}
                                         id="id"
                                         value={value.firstName}
                                         onChange={changeHandler} />
@@ -224,16 +227,16 @@ const Profile = () => {
                                             onClick={uploadAvatar}>
                                             Upload Image
                                         </Button>
+                                        {progress !== 0
+                                            ? <ProgressBar className="mb-3" now={progress} label={`${progress}%`} />
+                                            : ''
+                                        }
                                         <Button
                                             className="float-bottom"
                                             style={{ background: "#ff3333", border: 0, width: "-webkit-fill-available" }}
                                             onClick={deletevatar}>
                                             Delete Image
                                         </Button>
-                                        {progress !== 0
-                                            ? <ProgressBar className="mb-3" now={progress} label={`${progress}%`} />
-                                            : ''
-                                        }
                                     </Card.Body>
                                 </Card>
                             </Form.Group>

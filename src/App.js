@@ -4,7 +4,6 @@ import { Footer } from './components/footer/footer';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './components/home/home';
 import { Favourites } from './components/favourites/favourites';
-import { Watchlist } from './components/watchlist/watchlist';
 import { Contacts } from './components/contacts/contacts';
 import { About } from './components/about/about';
 import { NotFound } from './components/not-found/not-found';
@@ -36,7 +35,6 @@ function App() {
             </Suspense>} />
           <Route path="/catalog/:movieId/*" element={<MovieDetails />} />
           <Route path="/favourites" element={<Favourites />} />
-          <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about" element={<About />} />
           <Route path="/movie-list" element={<MovieList />} />

@@ -10,14 +10,14 @@ export const EditMovie = ({
     showAction,
     handleClose,
 }) => {
-
+    
     const [value, setValue] = useState({
-        Title: '',
-        Year: '',
-        Genre: '',
-        Director: '',
-        Writers: '',
-        Description: '',
+        Title: movie.Title,
+        Year: movie.Year,
+        Genre: movie.Genre,
+        Director: movie.Director,
+        Writers: movie.Writers,
+        Description: movie.Description,
     });
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);

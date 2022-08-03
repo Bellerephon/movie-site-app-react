@@ -11,8 +11,6 @@ export const Home = () => {
         getLastRecords("movies")
             .then(res => setOrderMovies(res));
     }, []);
-
-    console.log(orderMovies);
     
     return (
         <Container>

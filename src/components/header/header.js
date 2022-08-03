@@ -19,7 +19,7 @@ export const Header = () => {
     setLogOut(false);
   }
 
-  const handleSignUp = (result) => {
+  const handleSignUp = () => {
     setSignUp(true)
   }
   const handleLogIn = () => {
@@ -54,7 +54,9 @@ export const Header = () => {
               {user && <NavDropdown title={user ? user.email : "Profile"} id="collasible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/movie-list">My Movies</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to="/profile">
+                {/* <NavDropdown.Item Link to={`/catalog/${id}`}></NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/profile"> */}
+                <NavDropdown.Item as={Link} to={user ? `/profile/${user.uid}` : `/profile/${user.uid}`}>
                   My Profile
                 </NavDropdown.Item>
               </NavDropdown>}

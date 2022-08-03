@@ -38,7 +38,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about" element={<About />} />
           <Route path="/movie-list" element={<MovieList />} />
-          <Route path="/profile" element={
+          <Route path="/profile/:userID/*" element={
             <Suspense fallback={<div>Loading...</div>}>
               <Profile />
             </Suspense>} />

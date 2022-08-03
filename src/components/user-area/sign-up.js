@@ -29,16 +29,16 @@ export const SignUp = ({
             const userData = ({
                 email: auth.currentUser.email,
                 lastLogin: auth.currentUser.metadata.lastLoginAt,
-                phoneNumber: '',
-                firstName: '',
-                lastName: '',
-                userName: '',
-                address: '',
-                city: '',
-                state: '',
+                phoneNumber: null,
+                firstName: null,
+                lastName: null,
+                userName: null,
+                address: null,
+                city: null,
+                state: null,
                 zip: null,
-                aboutMe: '',
-                photoURL: '',
+                aboutMe: null,
+                photoURL: null,
             })
             createUserInFirebase(auth.currentUser.uid, userData);
             handleClose();

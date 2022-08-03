@@ -74,7 +74,6 @@ export const CreateMovie = ({
             e.preventDefault();
             const { ...userData } = value;
             Object.assign(userData, { Poster: downloadURL, OwnerId: user.uid });
-            console.log(userData);
             createMovie(userData);
             handleClose();
         }

@@ -29,7 +29,6 @@ export const auth = getAuth(app);
 
 // get Movie Details
 export const getCollectionDetails = async (id, collect) => {
-  console.log('Connect');
   const docRef = doc(db, collect, id);
   const docSnap = await getDoc(docRef)
   const data = docSnap.exists() ? docSnap.data() : null

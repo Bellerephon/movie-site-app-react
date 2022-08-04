@@ -21,6 +21,7 @@ export const EditProfile = ({ handleClose, userData }) => {
         state: userData.state,
         zip: userData.zip,
         aboutMe: userData.aboutMe,
+        photoURL: userData.photoURL
     });
 
     const changeHandler = (e) => {
@@ -37,9 +38,8 @@ export const EditProfile = ({ handleClose, userData }) => {
         }
         try {
             editCollection(userData.id, "users", value);
-            alert("success")
         } catch (err) {
-            alert("Not Sucssee")
+            console.log(err);
         }
     }
 
@@ -78,43 +78,44 @@ export const EditProfile = ({ handleClose, userData }) => {
                     <Modal.Title>Edit Profile</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Row className="detail-container">
-                        <Col md={5}>
-                        <Form.Label>Avatar</Form.Label>
-                        <Card style={{ width: '275px', height: '275px' }}>
+                    <Row>
+                        <Col>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Avatar</Form.Label>
                                 <Card.Img
                                     variant="top"
-                                // src={(userData.photoURL || downloadURL) || demoAvatar}
+                                    src={(downloadURL || userData.photoURL) || demoAvatar} thumbnail 
+                                    // src={userData.photoURL ? userData.photoURL : downloadURL}
                                 />
-                                <Card.Body>
-                                    <Form.Control
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Control
                                         type="file"
                                         id="uploadAvatar"
                                         name="uploadAvatar"
-                                    >
-                                    </Form.Control>
-                                    <Button
-                                        className="float-bottom"
-                                        style={{ background: "#2db4ea", border: 0, width: "-webkit-fill-available" }}
-                                        onClick={uploadAvatar}>
-                                        Upload Image
-                                    </Button>
-                                    {progress !== 0
-                                        ? <ProgressBar className="mb-3" now={progress} label={`${progress}%`} />
-                                        : ''
-                                    }
-                                    <Button
-                                        className="float-bottom"
-                                        style={{ background: "#ff3333", border: 0, width: "-webkit-fill-available" }}
-                                    // onClick={deletevatar}
-                                    >
-                                        Delete Image
-                                    </Button>
-                                </Card.Body>
-                            </Card>
+                                        onChange={setUploadHandler}
+                                />
+                            </Form.Group>
+                            <Button
+                                className="mb-3"
+                                style={{ background: "#2db4ea", border: 0, width: "-webkit-fill-available" }}
+                                onClick={uploadAvatar}>
+                                Upload Image
+                            </Button>
+                            {progress !== 0
+                                ? <ProgressBar className="mb-2" now={progress} label={`${progress}%`} />
+                                : ''
+                            }
+                            <Button
+                                className="mb-3"
+                                style={{ background: "#ff3333", border: 0, width: "-webkit-fill-available" }}
+                            // onClick={deletevatar}
+                            >
+                                Delete Image
+                            </Button>
                         </Col>
-                        <Col md={7}>
-                            <Form.Group className="mb-3">
+                        <Col>
+                            <Form.Group className="mb-2">
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -124,7 +125,7 @@ export const EditProfile = ({ handleClose, userData }) => {
                                     onChange={changeHandler}
                                 />
                             </Form.Group>
-                            <Form.Group className="mb-3">
+                            <Form.Group className="mb-2">
                                 <Form.Label>Last Name</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -134,23 +135,93 @@ export const EditProfile = ({ handleClose, userData }) => {
                                     onChange={changeHandler}
                                 />
                             </Form.Group>
-                            
-
-                            <Form.Select
-                                onChange={changeHandler}
-                                name="state"
-                                id="state"
-                                value={value.state}
-                            // defaultValue="Sofia City"
-                            >
-                                {
-                                    states.map((state, index) => {
-                                        return (<option key={index} value={state.name}>{state.name}</option>)
-                                    })
-                                }
-                            </Form.Select>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    value={value.email}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Phone Number</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    id="phoneNumber"
+                                    name="phoneNumber"
+                                    value={value.phoneNumber}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Address</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    id="address"
+                                    name="address"
+                                    value={value.address}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>About Me</Form.Label>
+                                <Form.Control
+                                    as="textarea"
+                                    rows={5}
+                                    id="aboutMe"
+                                    name="aboutMe"
+                                    value={value.aboutMe}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col>
+                    <Form.Group className="mb-2">
+                                <Form.Label>City</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    value={value.city}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
+                            </Col>
+                            <Col>
+                            <Form.Group className="mb-2">
+                                <Form.Label>State</Form.Label>
+                                <Form.Select
+                                    onChange={changeHandler}
+                                    name="state"
+                                    id="state"
+                                    value={value.state}
+                                // defaultValue="Sofia City"
+                                >
+                                    {
+                                        states.map((state, index) => {
+                                            return (<option key={index} value={state.name}>{state.name}</option>)
+                                        })
+                                    }
+                                </Form.Select>
+                            </Form.Group>
+                            </Col>
+                            <Col>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Zip</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    id="zip"
+                                    name="zip"
+                                    value={value.zip}
+                                    onChange={changeHandler}
+                                />
+                            </Form.Group>
+                            </Col>          
+                            </Row>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button

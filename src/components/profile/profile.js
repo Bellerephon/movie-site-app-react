@@ -17,7 +17,7 @@ const Profile = () => {
         getCollectionDetails(userID, "users")
             .then(profile => setUserData(profile));
     }, [userID]);
-    
+
     console.log(userData);
 
     const handleShow = () => {
@@ -73,7 +73,7 @@ const Profile = () => {
                                 <Form.Group as={Col}>
                                     <Form.Label>Phone Number</Form.Label>
                                     <Form.Control
-                                        type="text"
+                                        type="number"
                                         placeholder={userData.phoneNumber}
                                         readOnly
                                     />
@@ -121,7 +121,8 @@ const Profile = () => {
                             <Form.Group className="mb-3">
                                 <Form.Label>About me</Form.Label>
                                 <Form.Control
-                                    type="text"
+                                    as="textarea"
+                                    rows={5}
                                     placeholder={userData.aboutMe}
                                     readOnly
                                 />

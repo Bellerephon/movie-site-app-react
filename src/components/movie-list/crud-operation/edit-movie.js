@@ -28,7 +28,6 @@ export const EditMovie = ({
         if(downloadURL !== ''){
             Object.assign(value, { Poster: downloadURL });
         }
-        console.log(value);
         editCollection(movie.id, "movies", value);
     }
 

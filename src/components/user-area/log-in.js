@@ -8,9 +8,10 @@ export const Login = ({
   handleSignUp,
   handleClose
 }) => {
-  // const [signUp, setSignUp] = useState();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [values, setValues ] = useState({
+    email: "",
+    password: "",
+  })
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export const Login = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    const { email, password } = values;
     try {
       await logIn(email, password);
       handleClose();
@@ -26,6 +28,14 @@ export const Login = ({
       setError(err.message);
     }
   };
+
+    const changeHandler = (e) => {
+      setValues(state => ({
+          ...state,
+          [e.target.name]: e.target.value
+      }));
+  };
+
 
   const showSignUp = () => {
     handleClose(false);
@@ -38,20 +48,24 @@ export const Login = ({
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Label>Email address</Form.Label>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Control
+              id="email"
+              name="email"
               type="email"
               placeholder="Enter Email address"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={changeHandler}
               autoComplete="on"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              id="password"
+              name="password"
               type="password"
               placeholder="Enter Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={changeHandler}
               autoComplete="on"
             />
           </Form.Group>

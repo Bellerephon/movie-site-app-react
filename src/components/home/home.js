@@ -1,80 +1,68 @@
 import { Container, Carousel, Row } from "react-bootstrap";
-import { CatalogItem } from "../catalog/catalog-item/catalog-item";
+import { CatalogItem } from "../catalog/catalog-item";
 import { useState, useEffect } from "react";
 import { getLastRecords } from "../../lib/init-firebase";
+import './home.scss';
+import slide1 from '../../asset/slide1.jpeg';
+import slide2 from '../../asset/slide2.jpeg';
+import slide3 from '../../asset/slide3.jpeg';
 
 export const Home = () => {
 
-    const [orderMovies, setOrderMovies] = useState();
+  const [orderMovies, setOrderMovies] = useState();
 
-    useEffect(() => {
-        getLastRecords("movies")
-            .then(res => setOrderMovies(res));
-    }, []);
-    
-    return (
-        <Container>
-            <Carousel fade>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://moviesmarkus.files.wordpress.com/2022/06/top-gun.jpg"
-                        alt="First slide"
-                        margin= "auto"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/06/THOR-LOVE-AND-THUNDER-SET-PHOTO.jpg"
-                        alt="Second slide"
-                        margin= "auto"
-                    />
+  useEffect(() => {
+    getLastRecords("movies")
+      .then(res => setOrderMovies(res));
+  }, []);
 
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://ntvb.tmsimg.com/assets/p19994163_v_h8_ac.jpg?w=1280&h=720"
-                        alt="Third slide"
-                        margin= "auto"
-                    />
+  return (
+    <Container>
+      <Carousel>
+        <Carousel.Item interval={5000} className="carousel">
+          <img
+            width={1200}
+            height={560}
+            alt="1200x560"
+            src={slide1}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            width={1200}
+            height={560}
+            alt="1200x560"
+            src={slide2}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            width={1200}
+            height={560}
+            alt="1200x560"
+            src={slide3}
+          />
+        </Carousel.Item>
+      </Carousel>
 
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+      <Row>
+        {orderMovies ?
+          orderMovies.map((movie) => (
+            <CatalogItem
+              key={movie.id}
+              id={movie.id}
+              Title={movie.Title}
+              Poster={movie.Poster}
+              Year={movie.Year}
+              Genre={movie.Genre}
+              Cast={movie.Cast}
+              Description={movie.Description}
+              Director={movie.Director}
+              Writers={movie.Writers}
+            />
+          )) : <div>No articles yet</div>}
+      </Row>
 
-            <Row>
-                {orderMovies ?
-                    orderMovies.map((movie) => (
-                        <CatalogItem
-                            key={movie.id}
-                            id={movie.id}
-                            Title={movie.Title}
-                            Poster={movie.Poster}
-                            Year={movie.Year}
-                            Genre={movie.Genre}
-                            Cast={movie.Cast}
-                            Description={movie.Description}
-                            Director={movie.Director}
-                            Writers={movie.Writers}
-                        />
-                    )) : <div>No articles yet</div>}
-            </Row>
-
-        </Container>
-    )
+    </Container>
+  )
 }

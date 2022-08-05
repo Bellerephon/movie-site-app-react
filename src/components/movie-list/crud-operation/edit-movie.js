@@ -29,6 +29,7 @@ export const EditMovie = ({
             Object.assign(value, { Poster: downloadURL });
         }
         editCollection(movie.id, "movies", value);
+        handleClose();
     }
 
     const changeHandler = (e) => {

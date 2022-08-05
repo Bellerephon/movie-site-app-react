@@ -1,27 +1,24 @@
 
 
-import { Row, Container, Pagination, Form, Button } from "react-bootstrap";
-import { CatalogItem } from "./catalog-item/catalog-item";
-import { useContext } from "react";
+import { Row, Container, Pagination } from "react-bootstrap";
+import { CatalogItem } from "./catalog-item";
+import { useContext, useState } from "react";
 import { MovieContext } from "../../contexts/movie-context";
+import { Search } from "./search";
 
 const Catalog = () => {
     const { movies } = useContext(MovieContext);
+    const [ favourite, setFavourite ] = useState();
+
+
+    const setFavourites = (name) => {
+        setFavourite(name);
+    }
 
     return (
 
         <Container className="image-grid">
-            <Container className="justify-content-end">
-                <Form className="d-flex">
-                    <Form.Control
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                    />
-                    <Button style={{ background: "#2db4ea", border: 0 }}>Search</Button>
-                </Form>
-            </Container>
+            <Search />
             <Row>
                 {movies ?
                     movies.map((movie) => (
@@ -36,6 +33,7 @@ const Catalog = () => {
                             Description={movie.Description}
                             Director={movie.Director}
                             Writers={movie.Writers}
+                            setFavourites={setFavourites}
                         />
                     )) : <div>No articles yet</div>}
             </Row>

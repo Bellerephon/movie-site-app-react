@@ -1,24 +1,19 @@
-import { Container, Row, Col, PopoverHeader, Form, Button, Card, Modal } from "react-bootstrap";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../../lib/init-firebase";
+import { Container, Row, Col, PopoverHeader, Form, Button, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { editCollection, getCollectionDetails } from "../../lib/init-firebase";
-import { states } from './states';
-import demoAvatar from '../../asset/demo-avatar.png';
+import * as service from "../../lib/init-firebase";
 import { EditProfile } from "./edit-profile";
+
 
 const Profile = () => {
     const { userID } = useParams();
-    const [userData, setUserData] = useState(null);
-    const [editProfile, setEditProfile] = useState();
+    const [userData, setUserData] = useState([]);
+    const [editProfile, setEditProfile] = useState(false);
 
     useEffect(() => {
-        getCollectionDetails(userID, "users")
-            .then(profile => setUserData(profile));
-    }, [userID]);
-
-    console.log(userData);
+        service.getCollectionDetails(userID, "users")
+            .then(userData => setUserData(userData));
+    }, [editProfile]);
 
     const handleShow = () => {
         setEditProfile(true)
@@ -28,18 +23,17 @@ const Profile = () => {
         setEditProfile(false);
     }
 
+
     return (
-        <Container >
-            {editProfile == true &&
-                <Modal
-                    size="lg"
-                    show={handleShow}
-                    onHide={handleClose}>
-                    <EditProfile handleClose={handleClose} userData={userData} />
-                </Modal>
+        <Container>
+            {editProfile === true &&
+                <EditProfile
+                    handleShow={handleShow}
+                    handleClose={handleClose}
+                    userData={userData}
+                />
             }
             <PopoverHeader><strong><h2>User Profile</h2></strong></PopoverHeader>
-            {userData &&
                 <Form>
                     <Row>
                         <Col xs={10} md={9} className="p-3">
@@ -139,17 +133,17 @@ const Profile = () => {
                         <Col xs={6} md={2} className="p-3">
                             <Form.Group className="mb-3">
                                 <Form.Label>Avatar</Form.Label>
-                                <Card style={{ width: '275px', height: '275px' }}>
+                                <Card style={{ width: '280px', height: '280px' }}>
                                     <Card.Img
                                         variant="top"
-                                        src={(userData.photoURL) || demoAvatar}
+                                        src={userData.photoURL}
+                                        thumbnail="true"
                                     />
                                 </Card>
                             </Form.Group>
                         </Col>
                     </Row>
                 </Form>
-            }
         </Container>
     );
 }

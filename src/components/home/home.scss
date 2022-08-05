@@ -1,0 +1,12 @@
+.carousel {
+    // width:1000px;
+    // height:500px;
+    margin: auto;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+  }
+
+  @import "~bootstrap/scss/bootstrap";

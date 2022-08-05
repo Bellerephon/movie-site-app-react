@@ -3,7 +3,7 @@ import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './components/home/home';
-import { Favourites } from './components/favourites/favourites';
+import { Favourites } from './components/catalog/favourites';
 import { Contacts } from './components/contacts/contacts';
 import { About } from './components/about/about';
 import { NotFound } from './components/not-found/not-found';

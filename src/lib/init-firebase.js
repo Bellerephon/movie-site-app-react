@@ -53,7 +53,7 @@ export const getCollectionDetails = async (id, collect) => {
 export const getLastRecords = async (collect) => {
   const dataObj = [];
   const collectionRef = collection(db, collect);
-  const q = query(collectionRef, orderBy("CreatedDate"), limit(3));
+  const q = query(collectionRef, orderBy("CreatedDate", "desc"), limit(3));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     dataObj.push({ id: doc.id, ...doc.data() });

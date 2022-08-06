@@ -63,7 +63,8 @@ export const SignUp = ({
     };
 
     const passCheck = (e) => {
-        let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.[!@#$%^&])(?=.{8,})");
+        let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        
 
         if (!strongRegex.test(e.target.value)) {
             return setError("Your password is not secure enough!")

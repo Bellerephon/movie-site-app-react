@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import * as service from "../../lib/init-firebase";
 import { EditProfile } from "./edit-profile";
-
+import demoAvatar from '../../asset/demo-avatar.png';
 
 const Profile = () => {
     const { userID } = useParams();
@@ -136,7 +136,7 @@ const Profile = () => {
                                 <Card style={{ width: '280px', height: '280px' }}>
                                     <Card.Img
                                         variant="top"
-                                        src={userData.photoURL}
+                                        src={userData.photoURL || demoAvatar}
                                         thumbnail="true"
                                     />
                                 </Card>

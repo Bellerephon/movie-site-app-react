@@ -1,5 +1,6 @@
 import * as service from "../../../lib/init-firebase";
 import emptyImage from "../../../asset/no-poster.png";
+import './movie-details.scss';
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";

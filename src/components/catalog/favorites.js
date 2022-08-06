@@ -10,8 +10,8 @@ export const Favorites = () => {
         <Container className="image-grid">
             <Search />
             <Row>
-                {Favorites ?
-                    Favorites.map((movie) => (
+                {favorites ?
+                    favorites.map((movie) => (
                         <Movie
                             key={movie.id}
                             movie={movie}

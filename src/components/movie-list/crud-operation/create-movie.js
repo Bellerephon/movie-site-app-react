@@ -192,7 +192,8 @@ export const CreateMovie = ({
                                     <Form.Label>Cast</Form.Label>
                                     <Form.Control
                                         required
-                                        type="text"
+                                        as="textarea"
+                                        rows={2}
                                         placeholder="Enter Movie cast..."
                                         id="Cast"
                                         name="Cast"
@@ -263,6 +264,7 @@ export const CreateMovie = ({
                             Close
                         </Button>
                         <Button
+                            disabled={!downloadURL ? true : false}
                             type="submit"
                             style={{ background: "#2db4ea", border: 0 }}>
                             Add Movie

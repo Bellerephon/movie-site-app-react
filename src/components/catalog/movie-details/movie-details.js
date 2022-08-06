@@ -1,13 +1,10 @@
 import * as service from "../../../lib/init-firebase";
 import emptyImage from "../../../asset/no-poster.png";
-
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
-
 export const MovieDetails = () => {
-
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
 

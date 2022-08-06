@@ -11,7 +11,7 @@ import { auth } from "../lib/init-firebase";
 const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-  
+
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
@@ -31,7 +31,7 @@ export function UserAuthContextProvider({ children }) {
       unsubscribe();
     };
   }, []);
-  
+
   return (
     <userAuthContext.Provider
       value={{ user, logIn, signUp, logOut }}

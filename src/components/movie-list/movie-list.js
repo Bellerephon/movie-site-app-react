@@ -7,11 +7,11 @@ import { ShowMovie } from "./crud-operation/show-movie";
 import { EditMovie } from "./crud-operation/edit-movie";
 import { DeleteMovie } from "./crud-operation/delete-movie";
 import { useContext } from "react";
-import { MovieContext } from "../../contexts/movie-context";
+import { useMovieContext } from "../../contexts/movie-context";
 import * as service from '../../lib/init-firebase';
 
 export const MovieList = () => {
-    const { movies } = useContext(MovieContext);
+    const { movies } = useMovieContext();
 
     const [buttonAction, setButtonAction] = useState({ action: null });
     const [modalAction, setModalAction] = useState(false);

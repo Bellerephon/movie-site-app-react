@@ -27,7 +27,7 @@
     color: #222;
     margin-top: -0.2em;
     line-height: 1.4;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
     transition: all ease-in 100ms;
@@ -38,9 +38,9 @@
   }
   
   .card h5 {
-    color: #bbb;
+    color: #222;
     font-weight: 700;
-    font-size: 0.7em;
+    font-size: 0.9em;
     letter-spacing: 0.04em;
     margin: 1.4em 0 0 0;
     text-transform: uppercase;
@@ -52,16 +52,16 @@
 
   .image-container {
     position: relative;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
   }
   
   .image-container:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.09);
   }
   
   .image-container:hover .overlay {
-    opacity: 1;
+    opacity: 1.5;
   }
   
   .overlay {

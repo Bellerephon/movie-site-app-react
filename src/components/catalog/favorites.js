@@ -1,37 +1,17 @@
-
-
 import { Row, Container, Pagination } from "react-bootstrap";
-import { Movie } from "./movie";
 import { useMovieContext } from "../../contexts/movie-context";
 import { Search } from "./search";
-import { useState } from "react";
+import { Movie } from "./movie";
 
-const Catalog = () => {
-    const [ search, setSearch ] = useState('');
-    const { movies } = useMovieContext();
-
-    const onSearchChange = (e) => {
-        setSearch(e.target.value);
-    }
-
-    const onSearchSubmit = (e) => {
-        e.preventDefault();
-        console.log(search);
-
-        setSearch('')
-    }
+export const Favorites = () => {
+    const { favorites } = useMovieContext();
 
     return (
-
         <Container className="image-grid">
-            <Search 
-                search={search}
-                onSearchChange={onSearchChange} 
-                onSearchSubmit={onSearchSubmit}
-            />
+            <Search />
             <Row>
-                {movies ?
-                    movies.map((movie) => (
+                {Favorites ?
+                    Favorites.map((movie) => (
                         <Movie
                             key={movie.id}
                             movie={movie}
@@ -47,7 +27,5 @@ const Catalog = () => {
                 <Pagination.Last />
             </Pagination>
         </Container>
-    )
+    );
 }
-
-export default Catalog;

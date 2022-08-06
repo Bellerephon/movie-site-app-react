@@ -1,5 +1,5 @@
 import { Container, Carousel, Row } from "react-bootstrap";
-import { CatalogItem } from "../catalog/catalog-item";
+import { Movie } from "../catalog/movie";
 import { useState, useEffect } from "react";
 import { getLastRecords } from "../../lib/init-firebase";
 import './home.scss';
@@ -18,8 +18,8 @@ export const Home = () => {
 
   return (
     <Container>
-      <Carousel>
-        <Carousel.Item interval={5000} className="carousel">
+      <Carousel variant="dark"> 
+        <Carousel.Item interval={4500} className="carousel">
           <img
             width={1200}
             height={560}
@@ -44,23 +44,15 @@ export const Home = () => {
           />
         </Carousel.Item>
       </Carousel>
-
-      <Row>
+      <div className="lastes-text">Latest Movies</div>
+      <Row className="row-style">
         {orderMovies ?
           orderMovies.map((movie) => (
-            <CatalogItem
+            <Movie
               key={movie.id}
-              id={movie.id}
-              Title={movie.Title}
-              Poster={movie.Poster}
-              Year={movie.Year}
-              Genre={movie.Genre}
-              Cast={movie.Cast}
-              Description={movie.Description}
-              Director={movie.Director}
-              Writers={movie.Writers}
+              movie={movie}
             />
-          )) : <div>No articles yet</div>}
+          )) : <h2>No articles yet</h2>}
       </Row>
 
     </Container>

@@ -1,12 +1,30 @@
 .carousel {
-    // width:1000px;
-    // height:500px;
-    margin: auto;
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    filter: drop-shadow(0 0 10px #0003);
-    perspective: 100px;
-  }
+  // width:1000px;
+  // height:500px;
+  margin: auto;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+}
 
-  @import "~bootstrap/scss/bootstrap";
+.row-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lastes-text {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 45px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #181818;
+  letter-spacing: 3px;
+  padding: 8px;
+  text-shadow: 2px 2px #0003;
+}
+
+
+@import "~bootstrap/scss/bootstrap";

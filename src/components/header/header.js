@@ -5,6 +5,7 @@ import { Logout } from '../user-area/log-out';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUserAuth } from '../../contexts/user-auth-context';
+
 import './header.scss';
 
 export const Header = () => {
@@ -46,7 +47,7 @@ export const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" variant="pills">
               <Nav.Link as={Link} to="/catalog">All Movies</Nav.Link>
-              <Nav.Link as={Link} to="/favourites">Favourites</Nav.Link>
+              <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link>
               <Nav.Link as={Link} to="/about">About</Nav.Link>
               <Nav.Link as={Link} to="/contacts">Contact</Nav.Link>
             </Nav>

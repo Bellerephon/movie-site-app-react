@@ -1,87 +1,120 @@
 
 
-# What is the Movie site app?
+# Project Name
 
-This is a small project developed with the aim of assimilating the knowledge acquired during a react.js course at the Bulgarian programming university <a href="https://softuni.bg/">
-<img alt="Soft Uni" src="https://seeklogo.com/images/S/software-university-logo-2D117356A9-seeklogo.com.png" width="165"/>
-</a>.
+Movie site app
+
+## Table of contents
+
+- [Project Name](#project-name)
+  - [Prerequisites](#prerequisites)
+  - [Table of contents](#table-of-contents)
+  - [What is the Movie site app](#what-is-the-movie-site-app)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Serving the app](#serving-the-app)
+    - [Running the tests](#running-the-tests)
+    - [Building a distribution version](#building-a-distribution-version)
+    - [Deploy the product](#deploy-the-product)
+  - [Languages and tools](#languages-and-tools)
+  - [Built With](#built-with)
+  - [Authors](#authors)
+  
+## What is the Movie site app?
+
+This is a small project developed with the aim of assimilating the knowledge acquired during a react.js course at the Bulgarian programming university 
+SoftUni.
+
+<a href="https://softuni.bg/">
+<img alt="Soft Uni" src="https://additivedays.com/wp-content/uploads/2020/02/softwareuniveristy_logo_oneline.png" width="100"/>
+</a>
+
 The application is basically an interactive movie site where the visitor has the opportunity to register and subsequently add new movies to the database. He can then edit, delete or simply like them.
 He also has the option to update his user profile, where he can add his photo, as well as information about his names, address, phone, brief information about himself, etc.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project requires NPM.
+NPM(<a href="https://www.npmjs.com/">www.npmjs.com</a>) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+First - to run this project you need to add your Firebase configuration keys in src/lib/init-firebase.js folder. Then continue with the next steps.
 
-### `npm start`
+```sh
+$ npm -v && node -v
+8.5.1
+v17.6.0
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 
-### `npm test`
+Start with cloning this repo on your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+$ git clone https://github.com/ORG/PROJECT.git
+$ cd PROJECT
+```
 
-### `npm run build`
+To install and set up the library, run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ npm install -S myLib
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Serving the app
 
-### `npm run eject`
+```sh
+$ npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the tests
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+$ npm test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Building a distribution version
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
- ## Languages & tools
+```sh
+$ npm run build
+```
+
+This task will create a distribution version of the project
+inside your local `dist/` folder
+
+### Deploy the product
+
+```sh
+$ npm run deploy
+```
+
+In case you want to build and then deploy the project via Firebase, you can use the above command.
+
+ ## Languages and tools
 
 ### HTML
 ### JavaScript
 ### React
+### JSX
 ### CSS
 ### SCSS
 ### Firebase / Firestore
 ### Authentication
-## Firebase Storage
-## Learn More
+### Firebase Storage
+### Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Built With
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Visual Studio Code - Version: 1.70.0 
+* Google Firebase
+* Lots of effort and love :sunglasses:
 
-### Code Splitting
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* **Valentin Simeonov** - (https://github.com/Bellerephon)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### `npm run deploy`
-
-In case you want to build and then deploy the project via Firebase, you can use the above command.
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

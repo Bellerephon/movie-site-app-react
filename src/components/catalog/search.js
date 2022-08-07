@@ -1,4 +1,5 @@
 import { Container, Form, Button } from "react-bootstrap";
+import './search.scss';
 
 export const Search = ({
     search,

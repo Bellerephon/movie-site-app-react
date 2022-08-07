@@ -4,15 +4,17 @@ import { getFirestore,
           collection, 
           getDoc, 
           updateDoc, 
-          doc, addDoc, 
+          doc, 
+          addDoc, 
           deleteDoc,
           setDoc, 
           query, 
           orderBy, 
           limit, 
-          getDocs
+          getDocs,
+          where,
           } from 'firebase/firestore';
-import { getStorage, ref, deleteObject } from "firebase/storage";
+import { getStorage, ref } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 
@@ -59,6 +61,19 @@ export const getLastRecords = async (collect) => {
     dataObj.push({ id: doc.id, ...doc.data() });
   });
   return dataObj; 
+}
+
+// get Ordered and limit movies
+export const getSearchMovies = async (collect, text) => {
+  const searchData = [];
+  const collectionRef = collection(db, "movies");
+  const q = query(collectionRef, where("Title", "==", text));
+  const querySnapshot = await getDocs(q);
+  console.log(querySnapshot);
+  querySnapshot.forEach((doc) => {
+    searchData.push({ id: doc.id, ...doc.data() });
+  });
+  return searchData; 
 }
 
 // Create Single movie

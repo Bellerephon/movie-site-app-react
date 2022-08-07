@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+
+
+# What is the Movie site app?
+
+This is a small project developed with the aim of assimilating the knowledge acquired during a react.js course at the Bulgarian programming university <a href="https://softuni.bg/">
+<img alt="Soft Uni" src="https://seeklogo.com/images/S/software-university-logo-2D117356A9-seeklogo.com.png" width="165"/>
+</a>.
+The application is basically an interactive movie site where the visitor has the opportunity to register and subsequently add new movies to the database. He can then edit, delete or simply like them.
+He also has the option to update his user profile, where he can add his photo, as well as information about his names, address, phone, brief information about himself, etc.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -38,7 +46,16 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ ## Languages & tools
 
+### HTML
+### JavaScript
+### React
+### CSS
+### SCSS
+### Firebase / Firestore
+### Authentication
+## Firebase Storage
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -61,9 +78,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### `npm run deploy`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In case you want to build and then deploy the project via Firebase, you can use the above command.
 
 ### `npm run build` fails to minify
 

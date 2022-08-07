@@ -3,7 +3,6 @@ import emptyImage from '../../asset/no-poster.png'
 import { Link } from "react-router-dom";
 import './movie.scss';
 import { IoMdHeartEmpty, IoIosHeart } from 'react-icons/io';
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { useMovieContext } from "../../contexts/movie-context";
 
 export const Movie = ({ movie }) => {

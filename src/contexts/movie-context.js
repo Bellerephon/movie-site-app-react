@@ -6,7 +6,6 @@ import { useState } from "react";
 const MovieContext = createContext();
 
 export function MovieProvider({ children }) {
-    
     const [favMovies, setFavMovies] = useState([])
     const movies = useAllMovies();
     
@@ -39,7 +38,7 @@ export function MovieProvider({ children }) {
 
     return (
         <MovieContext.Provider
-            value={{ addToFavorites, getFavorites, isFav, favMovies, movies, favorites }}
+            value={{ addToFavorites, isFav, getFavorites, movies, favorites, favMovies }}
         >
             {children}
         </MovieContext.Provider>

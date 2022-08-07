@@ -1,6 +1,5 @@
 import { Row, Container, Pagination } from "react-bootstrap";
 import { useMovieContext } from "../../contexts/movie-context";
-import { Search } from "./search";
 import { Movie } from "./movie";
 
 export const Favorites = () => {
@@ -8,7 +7,6 @@ export const Favorites = () => {
 
     return (
         <Container className="image-grid">
-            <Search />
             <Row>
                 {favorites ?
                     favorites.map((movie) => (

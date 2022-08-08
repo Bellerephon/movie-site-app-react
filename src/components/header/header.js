@@ -96,7 +96,7 @@ export const Header = () => {
                 onHide={handleClose}>
                 <Modal.Body>
                   <Modal.Header closeButton>
-                    <Modal.Title>Logout</Modal.Title>
+                    <Modal.Title style={{color: "#000000"}}>Logout</Modal.Title>
                   </Modal.Header>
                   <Logout handleClose={handleClose} />
                 </Modal.Body>

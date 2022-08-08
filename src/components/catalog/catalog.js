@@ -61,7 +61,7 @@ const Catalog = () => {
                     ))}
                 </Row>
             : movies ?
-                <Row>
+                <Row className="py-5">
                     {
                         movies.map((movie) => (
                             <Movie

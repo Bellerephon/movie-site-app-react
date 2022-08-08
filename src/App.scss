@@ -1,24 +1,27 @@
-@import "~bootstrap/scss/bootstrap";
+
 
 .App {
   text-align: center;
 }
 
 body {
-    line-height: 1.6;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    background-image: url('./asset/slider-bg2.jpg');;
-  }
+  line-height: 1.6;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url('./asset/slider-bg2.jpg');
+  ;
+}
 
-h1, p {
-    font-family: Lato;
-  }
+h1,
+p {
+  font-family: Lato;
+  text-align: justify;
+}
 
-  * {
-    color: #b6b6b6
-  }
+* {
+  color: #b6b6b6
+}
 
-
+@import "~bootstrap/scss/bootstrap";

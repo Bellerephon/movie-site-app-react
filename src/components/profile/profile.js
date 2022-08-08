@@ -133,11 +133,12 @@ const Profile = () => {
                         <Col xs={6} md={2} className="p-3">
                             <Form.Group className="mb-3">
                                 <Form.Label>Avatar</Form.Label>
-                                <Card style={{ width: '280px', height: '280px' }}>
+                                <Card style={{ width: '300px', height: '300px', border: "none", borderRadius: "0.1em" }}>
                                     <Card.Img
+                                        style={{ width: '300px', height: '300px', border: "none", borderRadius: "0.1em" }}
                                         variant="top"
                                         src={userData.photoURL || demoAvatar}
-                                        thumbnail="true"
+                                       
                                     />
                                 </Card>
                             </Form.Group>

@@ -6,7 +6,7 @@ export const About = () => {
             <>
                 <h1 className='text-center'>Project Detail</h1>
 
-                <p>This project developed by Valentin Simeonov</p>
+                <h5>This project developed by Valentin Simeonov</h5>
 
                 <h4>Used Technologies</h4>
                 <ul style={{listStyle: "none"}}>

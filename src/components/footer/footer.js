@@ -5,10 +5,10 @@ import './footer.scss';
 export const Footer = () => {
     return (
         <footer className="py-3 style-footer">
-        <Container>
-            <Row>
-                <Col className="text-center py-3">
-                    <Link to="/">
+            <Container>
+                <Row>
+                    <Col className="footer-text"><span>&copy;</span> Movie City 2022</Col>
+                    <Col xs={6}><Link to="/">
                         <img
                             alt=""
                             src="/logo.svg"
@@ -16,10 +16,10 @@ export const Footer = () => {
                             height="80"
                             className="d-inline-block align-top"
                         />
-                    </Link>
-                </Col>
-            </Row>
-        </Container>
+                    </Link></Col>
+                    <Col className="footer-text"><div>Made with ❤️ by Bellerephon</div></Col>
+                </Row>
+            </Container>
         </footer>
     )
 }

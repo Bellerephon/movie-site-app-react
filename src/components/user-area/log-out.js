@@ -1,6 +1,7 @@
 import { Form, Modal, Button } from 'react-bootstrap';
 import { useUserAuth } from '../../contexts/user-auth-context';
 import { useNavigate } from 'react-router-dom';
+import './sign-out.scss';
 
 export const Logout = ({ handleClose }) => {
     const { logOut } = useUserAuth();
@@ -18,7 +19,7 @@ export const Logout = ({ handleClose }) => {
 
     return (
         <Form onSubmit={handleLogout}>
-            <Modal.Body>Are you sure you want to log out ?</Modal.Body>
+            <Modal.Body className="sign-out-style">Are you sure you want to log out ?</Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Cancel

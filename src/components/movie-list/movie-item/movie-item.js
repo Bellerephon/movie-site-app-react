@@ -33,7 +33,7 @@ export const MovieItem = ({
                             name="edit"
                             tooltip="Edit"
                             hover="Edit"
-                            theme="light"
+                            theme="dark"
                             size="small"
                             onClick={() => onActionClick(movie.id, PressedButton.Edit)}
                         />
@@ -42,7 +42,7 @@ export const MovieItem = ({
                             name="show"
                             tooltip="Show"
                             hover="Show"
-                            theme="light"
+                            theme="dark"
                             size="small"
                             onClick={() => onActionClick(movie.id, PressedButton.Details)}
                         />
@@ -51,7 +51,7 @@ export const MovieItem = ({
                             name="delete"
                             tooltip="Delete"
                             hover="Delete"
-                            theme="light"
+                            theme="dark"
                             size="small"
                             onClick={() => onActionClick(movie.id, PressedButton.Delete)}
                         />

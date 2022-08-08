@@ -10,11 +10,11 @@ export const Movie = ({ movie }) => {
     const { addToFavorites, isFav } = useMovieContext();
 
     return (
-        <Col sm={12} md={6} lg={3}>
-            <Card className="card image-container justify-content-start m-3" style={{ color: "#000", width: "19rem", marginTop: "25px" }}>
+        <Col sm={12} md={6} lg={3} className="pb-5 row-style">
+            <Card className="card image-container card-color"  style={{ color: "#000", width: "19rem", marginTop: "25px" }}>
                 <Card.Header className='h5'>{movie.Genre}</Card.Header>
-                <Link to={`/catalog/${movie.id}`}><Card.Img variant="top" src={movie.Poster || emptyImage} /></Link>
-                <Card.Body className='align-items-center justify-content-center'>
+                <Link to={`/catalog/${movie.id}`}><Card.Img className="image-container" variant="top" src={movie.Poster || emptyImage} /></Link>
+                <Card.Body className='card-body'>
                     <Card.Title className="h2">
                         {movie.Title} ({movie.Year})
                     </Card.Title>

@@ -1,12 +1,6 @@
 .carousel {
-  // width:1000px;
-  // height:500px;
   margin: auto;
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 50px;
-  filter: drop-shadow(0 0 10px #0003);
-  perspective: 100px;
 }
 
 .row-style {
@@ -16,11 +10,12 @@
 }
 
 .lastes-text {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Arial', sans-serif;
   font-size: 45px;
   text-align: center;
   text-transform: uppercase;
-  color: #181818;
+  font-family: 'Roboto', sans-serif;
+  color: #b6b6b6;
   letter-spacing: 3px;
   padding: 8px;
   text-shadow: 2px 2px #0003;

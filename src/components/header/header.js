@@ -32,7 +32,7 @@ export const Header = () => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" className='style-nav'  >
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img
@@ -43,8 +43,8 @@ export const Header = () => {
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav nav-link"/>
+          <Navbar.Collapse id="responsive-navbar-nav nav-link">
             <Nav className="me-auto" variant="pills">
               <Nav.Link as={Link} to="/catalog">All Movies</Nav.Link>
               <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link>

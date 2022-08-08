@@ -64,10 +64,10 @@ export const getLastRecords = async (collect) => {
 }
 
 // get Ordered and limit movies
-export const getSearchMovies = async (collect, text) => {
+export const getSearchMovies = async (collect, text, criteria) => {
   const searchData = [];
-  const collectionRef = collection(db, "movies");
-  const q = query(collectionRef, where("Title", "==", text));
+  const collectionRef = collection(db, collect);
+  const q = query(collectionRef, where(criteria, "==", text));
   const querySnapshot = await getDocs(q);
   console.log(querySnapshot);
   querySnapshot.forEach((doc) => {

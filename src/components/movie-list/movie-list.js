@@ -6,9 +6,10 @@ import { PressedButton } from "./crud-operation/pressed-button";
 import { ShowMovie } from "./crud-operation/show-movie";
 import { EditMovie } from "./crud-operation/edit-movie";
 import { DeleteMovie } from "./crud-operation/delete-movie";
-import { useContext } from "react";
 import { useMovieContext } from "../../contexts/movie-context";
 import * as service from '../../lib/init-firebase';
+import './movie-list.scss';
+
 
 export const MovieList = () => {
     const { movies } = useMovieContext();
@@ -70,7 +71,7 @@ export const MovieList = () => {
                 />
             }
             <div className='py-3' />
-            <Table striped bordered hover>
+            <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Poster</th>

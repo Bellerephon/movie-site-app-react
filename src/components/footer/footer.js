@@ -1,12 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { AiFillFacebook } from "react-icons/ai";
-// import { AiFillLinkedin } from "react-icons/ai";
-// import { AiFillGithub } from "react-icons/ai";
+import './footer.scss';
 
 export const Footer = () => {
     return (
-        <footer className="py-3 bg-dark">
+        <footer className="py-3 style-footer">
         <Container>
             <Row>
                 <Col className="text-center py-3">

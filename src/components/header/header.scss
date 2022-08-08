@@ -1,13 +1,10 @@
-.change-theme {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    color: "#2db4ea";
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    cursor: pointer;
-    border-radius: 50%;
+.style-nav {
+    background-color: #0D1927;  
 }
+
+.nav-link{
+    font-family: 'Roboto', sans-serif;
+    color: #b6b6b6 !important;
+  }
 
 @import "~bootstrap/scss/bootstrap";

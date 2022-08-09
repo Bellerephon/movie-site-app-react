@@ -48,7 +48,7 @@ export const Header = () => {
             <Nav className="me-auto" variant="pills">
               <NavLink as={Link} to="/catalog">All Movies</NavLink>
               <NavLink as={Link} to="/Favorites">Favorites</NavLink>
-              <NavLink as={Link} to="/box-office">Box Office</NavLink>
+              <NavLink as={Link} to="/top-rated">Top Rated</NavLink>
               <NavLink as={Link} to="/about">About</NavLink>
             </Nav>
             <Nav>

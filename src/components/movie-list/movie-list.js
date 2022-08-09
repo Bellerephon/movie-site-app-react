@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Table, Pagination, Button } from "react-bootstrap";
+import { Container, Table, Button } from "react-bootstrap";
 import { CreateMovie } from './crud-operation/create-movie';
 import { MovieItem } from "./movie-item/movie-item";
 import { PressedButton } from "./crud-operation/pressed-button";
@@ -102,14 +102,6 @@ export const MovieList = () => {
                 onClick={() => userActionClickHandler(null, PressedButton.Create)}>
                 Add New Movie
             </Button>
-            <Pagination className="py-4">
-                <Pagination.First />
-                <Pagination.Prev />
-                <Pagination.Item>{1}</Pagination.Item>
-                <Pagination.Ellipsis />
-                <Pagination.Next />
-                <Pagination.Last />
-            </Pagination>
         </Container>
     )
 }

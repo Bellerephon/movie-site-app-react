@@ -114,6 +114,10 @@ In case you want to build and then deploy the project via Firebase, you can use 
 * Google Firebase
 * Lots of effort and love :sunglasses:
 
+## Live site
+
+<a href="https://react-app-90b9c.web.app/">Movie-site-app</a>
+
 ## Authors
 
 * **Valentin Simeonov** - (https://github.com/Bellerephon)

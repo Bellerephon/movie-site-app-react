@@ -84,6 +84,7 @@ export const CreateMovie = ({
     return (
         <Container>
             <Modal
+                className="modal-style"
                 size="lg"
                 animation="true"
                 autoFocus="true"

@@ -20,11 +20,12 @@ export const Search = ({
                     value={search}
                 />
                 <Button
+                    variant="secondary"
                     className="search-button"
-                    type="submit"
-                    style={{ background: "#2db4ea", border: 0 }}>Search
+                    type="submit">Search
                 </Button>
                 <DropdownButton
+                    variant="secondary"
                     title="Search criteria"
                     id="dropdown-menu"
                     onSelect={handleSelect}

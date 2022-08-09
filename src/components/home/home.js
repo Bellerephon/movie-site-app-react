@@ -18,7 +18,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <Carousel variant="dark"> 
+      <Carousel fade variant="dark" className="d-block w-100"> 
         <Carousel.Item interval={4500} className="carousel">
           <img
             width={1200}

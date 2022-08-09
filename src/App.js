@@ -4,7 +4,7 @@ import { Footer } from './components/footer/footer';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './components/home/home';
 import { Favorites } from './components/catalog/favorites';
-import { Contacts } from './components/contacts/contacts';
+import { BoxOffice } from './components/box-office/box-office';
 import { About } from './components/about/about';
 import { NotFound } from './components/not-found/not-found';
 import { MovieList } from './components/movie-list/movie-list';
@@ -32,7 +32,7 @@ function App() {
             </Suspense>} />
           <Route path="/catalog/:movieId/*" element={<MovieDetails />} />
           <Route path="/Favorites" element={<Favorites />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/box-office" element={<BoxOffice />} />
           <Route path="/about" element={<About />} />
           <Route path="/movie-list" element={<MovieList />} />
           <Route path="/profile/:userID/*" element={

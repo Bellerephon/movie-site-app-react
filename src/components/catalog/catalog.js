@@ -43,7 +43,6 @@ const Catalog = () => {
                 <Alert className="alert-style" variant="warning">
                     Please select a search criteria and keyword !
                 </Alert>
-
             }
             <Search
                 search={search}
@@ -52,7 +51,7 @@ const Catalog = () => {
                 handleSelect={handleSelect}
             />
             {searchMovies ? 
-                <Row>
+                <Row className="py-5">
                     {searchMovies.map((movie) => (
                         <Movie
                             key={movie.id}

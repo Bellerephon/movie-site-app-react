@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, NavDropdown, Modal, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Modal, Button, NavLink } from 'react-bootstrap';
 import { SignUp } from '../user-area/sign-up';
 import { Login } from '../user-area/log-in';
 import { Logout } from '../user-area/log-out';
@@ -46,17 +46,15 @@ export const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav nav-link"/>
           <Navbar.Collapse id="responsive-navbar-nav nav-link">
             <Nav className="me-auto" variant="pills">
-              <Nav.Link as={Link} to="/catalog">All Movies</Nav.Link>
-              <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link>
-              <Nav.Link as={Link} to="/about">About</Nav.Link>
-              <Nav.Link as={Link} to="/contacts">Contact</Nav.Link>
+              <NavLink as={Link} to="/catalog">All Movies</NavLink>
+              <NavLink as={Link} to="/Favorites">Favorites</NavLink>
+              <NavLink as={Link} to="/box-office">Box Office</NavLink>
+              <NavLink as={Link} to="/about">About</NavLink>
             </Nav>
             <Nav>
               {user && <NavDropdown title={user ? user.email : "Profile"} id="collasible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/movie-list">My Movies</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {/* <NavDropdown.Item Link to={`/catalog/${id}`}></NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/profile"> */}
                 <NavDropdown.Item as={Link} to={user ? `/profile/${user.uid}` : `/profile/${user.uid}`}>
                   My Profile
                 </NavDropdown.Item>

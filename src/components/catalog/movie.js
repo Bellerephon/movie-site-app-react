@@ -26,6 +26,7 @@ export const Movie = ({ movie }) => {
                     </Card.Text>
                     {isFav(movie.id) ? (
                         <IoMdHeartEmpty
+                            cursor= "pointer"
                             name="favorite"
                             tooltip="Favorite"
                             hover="Favorite"
@@ -33,6 +34,7 @@ export const Movie = ({ movie }) => {
                             onClick={() => addToFavorites(movie)} />
                     ) : (
                         <IoIosHeart
+                            cursor= "pointer"
                             name="favorite"
                             tooltip="Favorite"
                             hover="Favorite"

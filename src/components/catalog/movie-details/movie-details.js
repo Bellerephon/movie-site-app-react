@@ -31,7 +31,7 @@ export const MovieDetails = () => {
                         <Tabs
                             defaultActiveKey="details"
                             id="justify-tab-example"
-                            className="mb-3"
+                            className="tab-button-style"
                             justify
                         >
                             <Tab eventKey="details" title="Details">
@@ -48,6 +48,7 @@ export const MovieDetails = () => {
                                     <>
                                         <div>Add to favorites</div>
                                         <IoMdHeartEmpty
+                                            cursor= "pointer"
                                             name="favorite"
                                             tooltip="Favorite"
                                             hover="Favorite"
@@ -58,6 +59,7 @@ export const MovieDetails = () => {
                                     <>
                                         <div>Remove from favorites</div>
                                         <IoIosHeart
+                                            cursor= "pointer"
                                             name="favorite"
                                             tooltip="Favorite"
                                             hover="Favorite"

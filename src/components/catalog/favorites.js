@@ -16,14 +16,6 @@ export const Favorites = () => {
                         />
                     )) : <h2>No articles yet</h2>}
             </Row>
-            <Pagination className="py-4">
-                <Pagination.First />
-                <Pagination.Prev />
-                <Pagination.Item>{1}</Pagination.Item>
-                <Pagination.Ellipsis />
-                <Pagination.Next />
-                <Pagination.Last />
-            </Pagination>
         </Container>
     );
 }

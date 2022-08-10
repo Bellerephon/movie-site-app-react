@@ -1,3 +1,18 @@
+.movie-details{
+    color: white !important;
+    text-align: justify;
+    margin-top: 2%
+}
 
+div.line-space {
+    line-height: 100%;
+  }
+
+h6.title-style {
+    font-size: 45px;
+    font-family: Georgia, serif;
+    color: #A9A9A9	;
+    text-shadow: 2px 2px #303030;
+}
 
 @import "~bootstrap/scss/bootstrap";

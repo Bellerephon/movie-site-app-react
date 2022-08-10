@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
-import { Container, Table, Pagination } from "react-bootstrap";
-import API_KEY from '../../lib/imdb-api';
+import { Container, Table } from "react-bootstrap";
+import { TopRatePagination } from "./top-rate-pagination";
 import { TopRatedItems } from "./top-rated-items";
+import API_KEY from '../../lib/imdb-api';
 
 export const TopRated = () => {
-    // const [boxOfficeWeeklyMovies, setBoxOfficeWeeklyMovies] = useState([]);
+
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [maxPages, setMaxPages] = useState(1);
 
-    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
-
+    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${currentPage}`
+    
     useEffect(() => {
         setTimeout(() => {
             fetch(url)
                 .then((response) => response.json())
                 .then((json) => {
+                    setMaxPages(json.total_pages)
                     setData(json.results);
                     setLoading(false);
                 });
@@ -22,6 +26,27 @@ export const TopRated = () => {
     }, [url]);
 
     console.log(data);
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage-1);
+        }
+    }
+
+    const nextPage = () => {
+        if (currentPage < maxPages){
+        setCurrentPage(currentPage+1)   
+        console.log(currentPage);
+        }
+    }
+
+    const firstPage = () => {
+        setCurrentPage(1)
+    }
+
+    const lastPage = () => {
+        setCurrentPage(maxPages)
+    }
 
     if (loading) {
         return (
@@ -32,6 +57,8 @@ export const TopRated = () => {
             </div>
         );
     }
+
+    // console.log(topMovies.total_pages);
 
     return (
         <Container>
@@ -60,14 +87,11 @@ export const TopRated = () => {
                     )}
                 </tbody>
             </Table>
-            <Pagination className="py-4">
-                <Pagination.First />
-                <Pagination.Prev />
-                <Pagination.Item>{1}</Pagination.Item>
-                <Pagination.Ellipsis />
-                <Pagination.Next />
-                <Pagination.Last />
-            </Pagination>
+            <TopRatePagination 
+                prevPage = {prevPage}
+                nextPage = {nextPage}
+                currentPage = {currentPage}
+            />
         </Container>
     );
 }

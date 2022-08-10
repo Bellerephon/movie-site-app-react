@@ -14,7 +14,7 @@ import { getFirestore,
           getDocs,
           where,
           } from 'firebase/firestore';
-import { getStorage, ref } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 
@@ -108,13 +108,4 @@ export const editCollection = async (docID, collect,  data) => {
 export const createUserInFirebase = async (userID, userData) => {
   const collectionRef = collection(db, "users");
   await setDoc(doc(collectionRef, userID), userData);
-}
-
-// Delete image from Firebase storage
-
-export const deleteImage = (storageName, imageURL) => {
-  const storage = getStorage();
-  const desertRef = ref(storage, `${storageName}/${imageURL}`);
-  console.log(desertRef);
-
 }

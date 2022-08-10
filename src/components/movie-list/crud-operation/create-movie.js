@@ -25,7 +25,7 @@ export const CreateMovie = ({
         OwnerId: '',
         CreatedDate: new Date(),
     });
-
+    const [errors, setErrors] = useState({});
     const {user} = useUserAuth();
 
     // Upload Movie Poster
@@ -81,6 +81,22 @@ export const CreateMovie = ({
         setValidated(true);
     };
 
+    const isPositive = (e) => {
+        let number = Number(e.target.value);
+
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: number < 0,
+        }));
+    }
+
+    const maxLength = (e, limit) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: value[e.target.name].length > limit,
+        }));
+    }
+
     return (
         <Container>
             <Modal
@@ -124,7 +140,13 @@ export const CreateMovie = ({
                                         name="Year"
                                         value={value.Year}
                                         onChange={changeHandler}
+                                        onBlur={isPositive}
                                     />
+                                     {errors.Year &&
+                                        <p className="form-error">
+                                            Movie Year should be a positive number!
+                                        </p>
+                                    }
                                     <Form.Control.Feedback type="invalid">
                                         Please choose a Movie year.
                                     </Form.Control.Feedback>
@@ -144,7 +166,13 @@ export const CreateMovie = ({
                                         name="Description"
                                         value={value.Description}
                                         onChange={changeHandler}
+                                        onBlur={(e) => maxLength(e, 3000)}
                                     />
+                                    {errors.Description &&
+                                        <p className="form-error">
+                                            First name should be max 3000 characters long!
+                                        </p>
+                                    }
                                     <Form.Control.Feedback type="invalid">
                                         Please write a description.
                                     </Form.Control.Feedback>

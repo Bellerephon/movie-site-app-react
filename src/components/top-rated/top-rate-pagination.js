@@ -2,9 +2,7 @@ import { Pagination } from "react-bootstrap";
 
 export const TopRatePagination = ({ 
     prevPage, 
-    nextPage, 
-    firstPage,
-    lastPage,
+    nextPage,
     currentPage,
 }) => {
 

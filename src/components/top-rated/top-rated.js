@@ -40,14 +40,6 @@ export const TopRated = () => {
         }
     }
 
-    const firstPage = () => {
-        setCurrentPage(1)
-    }
-
-    const lastPage = () => {
-        setCurrentPage(maxPages)
-    }
-
     if (loading) {
         return (
             <div className="d-flex justify-content-center mt-5">

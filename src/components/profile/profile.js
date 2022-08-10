@@ -54,6 +54,14 @@ const Profile = () => {
                                         readOnly
                                     />
                                 </Form.Group>
+                                <Form.Group as={Col}>
+                                    <Form.Label>UserName</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder={userData.userName}
+                                        readOnly
+                                    />
+                                </Form.Group>
                             </Row>
                             <Row className="mb-3">
                                 <Form.Group as={Col}>

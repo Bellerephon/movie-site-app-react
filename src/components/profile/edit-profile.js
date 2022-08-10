@@ -2,19 +2,22 @@ import { Container, Row, Col, Form, Button, Card, ProgressBar, Modal } from "rea
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../lib/init-firebase";
 import { useState } from "react";
-import { editCollection, deleteImage } from "../../lib/init-firebase";
+import { editCollection } from "../../lib/init-firebase";
 import { states } from './states';
 import demoAvatar from '../../asset/demo-avatar.png';
+import './edit-profile.scss';
 
 export const EditProfile = ({ handleShow, handleClose, userData }) => {
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);
     const [downloadURL, setDownloadURL] = useState('');
-    const [uploadImageRef, setUploadImageRef] = useState('')
-
+    const [uploadImageRef, setUploadImageRef] = useState('');
+    const [errors, setErrors] = useState({});
+    let imageRef = '';
     const [value, setValue] = useState({
         firstName: userData.firstName,
         lastName: userData.lastName,
+        userName: userData.userName,
         email: userData.email,
         phoneNumber: userData.phoneNumber,
         address: userData.address,
@@ -49,7 +52,7 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
     const uploadAvatar = () => {
         const uniqueKey = "123" + Date.now();
         if (imageUpload == null) return;
-        const imageRef = ref(storage, `avatars/${imageUpload.name + uniqueKey}`)
+        imageRef = ref(storage, `avatars/${imageUpload.name + uniqueKey}`)
         const uploadTask = uploadBytesResumable(imageRef, imageUpload);
         setUploadImageRef(imageRef);
         uploadTask.on(
@@ -69,12 +72,12 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
         )
     }
 
-    const deleteAvatar = () => {
-
-        deleteImage("avatars", uploadImageRef);
-
+    const maxLength = (e, limit) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: value[e.target.name].length > limit,
+        }));
     }
-
 
     return (
         <Container>
@@ -116,15 +119,6 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
                                     ? <ProgressBar className="mb-2" now={progress} label={`${progress}%`} />
                                     : ''
                                 }
-                                {userData.photoURL && 
-                                    <Button
-                                        className="mb-3"
-                                        style={{ background: "#ff3333", border: 0, width: "-webkit-fill-available" }}
-                                        onClick={deleteAvatar}
-                                    >
-                                        Delete Image
-                                    </Button>
-                                }
                             </Col>
                             <Col>
                                 <Form.Group className="mb-2">
@@ -135,7 +129,13 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
                                         name="firstName"
                                         value={value.firstName}
                                         onChange={changeHandler}
+                                        onBlur={(e) => maxLength(e, 20)}
                                     />
+                                     {errors.firstName &&
+                                        <p className="form-error">
+                                            First name should be max 20 characters long!
+                                        </p>
+                                    }
                                 </Form.Group>
                                 <Form.Group className="mb-2">
                                     <Form.Label>Last Name</Form.Label>
@@ -145,15 +145,21 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
                                         name="lastName"
                                         value={value.lastName}
                                         onChange={changeHandler}
+                                        onBlur={(e) => maxLength(e, 25)}
                                     />
+                                    {errors.lastName &&
+                                        <p className="form-error">
+                                            Last name should be max 25 characters long!
+                                        </p>
+                                    }
                                 </Form.Group>
                                 <Form.Group className="mb-2">
-                                    <Form.Label>Email</Form.Label>
+                                    <Form.Label>User Name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        id="email"
-                                        name="email"
-                                        value={value.email}
+                                        id="userName"
+                                        name="userName"
+                                        value={value.userName}
                                         onChange={changeHandler}
                                     />
                                 </Form.Group>
@@ -186,7 +192,13 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
                                         name="aboutMe"
                                         value={value.aboutMe}
                                         onChange={changeHandler}
-                                    />
+                                        onBlur={(e) => maxLength(e, 1000)}
+                                        />
+                                        {errors.aboutMe &&
+                                            <p className="form-error">
+                                                Last name should be max 1000 characters long!
+                                            </p>
+                                        }
                                 </Form.Group>
                             </Col>
                         </Row>

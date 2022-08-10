@@ -22,7 +22,8 @@ export const EditMovie = ({
     const [progress, setProgress] = useState(0);
     const [imageUpload, setImageUpload] = useState(null);
     const [downloadURL, setDownloadURL] = useState('');
-
+    const [errors, setErrors] = useState({});
+    
     const handleEditMovie = (e) => {
         e.preventDefault();
         if(downloadURL !== ''){
@@ -66,6 +67,15 @@ export const EditMovie = ({
                 });
             }
         )
+    }
+
+    const isPositive = (e) => {
+        let number = Number(e.target.value);
+
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: number < 0,
+        }));
     }
 
     return (
@@ -129,7 +139,13 @@ export const EditMovie = ({
                                         name="Year"
                                         value={value.Year}
                                         onChange={changeHandler}
-                                    />
+                                        onBlur={isPositive}
+                                        />
+                                         {errors.Year &&
+                                            <p className="form-error">
+                                                Movie Year should be a positive number!
+                                            </p>
+                                        }
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Genre</Form.Label>

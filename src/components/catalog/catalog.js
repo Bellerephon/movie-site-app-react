@@ -25,7 +25,7 @@ const Catalog = () => {
     const onSearchSubmit = (e) => {
         e.preventDefault();
         if (search !== "" && criteria !== "") {
-            getSearchMovies("movies", search, criteria)
+            getSearchMovies("movies", search.trim(), criteria)
                 .then(res => setSearchMovies(res));
                 setError(false)
         }

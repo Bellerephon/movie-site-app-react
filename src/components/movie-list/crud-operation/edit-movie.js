@@ -17,6 +17,7 @@ export const EditMovie = ({
         Genre: movie.Genre,
         Director: movie.Director,
         Writers: movie.Writers,
+        Cast: movie.Cast,
         Description: movie.Description,
     });
     const [progress, setProgress] = useState(0);
@@ -78,6 +79,13 @@ export const EditMovie = ({
         }));
     }
 
+    const maxLength = (e, limit) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: value[e.target.name].length > limit,
+        }));
+    }
+
     const ifSomeErrors = !Object.values(errors).some(x => x)
 
     return (
@@ -125,18 +133,22 @@ export const EditMovie = ({
                                     <Form.Label>Movie Title</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        // defaultValue={movie.Title}
                                         id="Title"
                                         name="Title"
                                         value={value.Title}
                                         onChange={changeHandler}
+                                        onBlur={(e) => maxLength(e, 50)}
                                     />
+                                    {errors.Title &&
+                                        <p className="form-error">
+                                            First name should be max 3000 characters long!
+                                        </p>
+                                    }
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Movie Year</Form.Label>
                                     <Form.Control
                                         type="number"
-                                        // defaultValue={movie.Year}
                                         id="Year"
                                         name="Year"
                                         value={value.Year}
@@ -153,7 +165,6 @@ export const EditMovie = ({
                                     <Form.Label>Genre</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        // defaultValue={movie.Genre}
                                         id="Genre"
                                         name="Genre"
                                         value={value.Genre}
@@ -164,7 +175,6 @@ export const EditMovie = ({
                                     <Form.Label>Director</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        // defaultValue={movie.Director}
                                         id="Director"
                                         name="Director"
                                         value={value.Director}
@@ -175,7 +185,6 @@ export const EditMovie = ({
                                     <Form.Label>Writers</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        // defaultValue={movie.Writers}
                                         id="Writers"
                                         name="Writers"
                                         value={value.Writers}
@@ -186,16 +195,34 @@ export const EditMovie = ({
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group className="mb-3">
+                                    <Form.Label>Cast</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id="Cast"
+                                        name="Cast"
+                                        value={value.Cast}
+                                        onChange={changeHandler}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please choose a cast.
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                                <Form.Group className="mb-3">
                                     <Form.Label>Description</Form.Label>
                                     <Form.Control
                                         as="textarea"
                                         rows={5}
-                                        // defaultValue={movie.Description}
                                         id="Description"
                                         name="Description"
                                         value={value.Description}
                                         onChange={changeHandler}
+                                        onBlur={(e) => maxLength(e, 2500)}
                                     />
+                                    {errors.Description &&
+                                        <p className="form-error">
+                                            First name should be max 3000 characters long!
+                                        </p>
+                                    }
                                 </Form.Group>
                             </Col>
                         </Row>

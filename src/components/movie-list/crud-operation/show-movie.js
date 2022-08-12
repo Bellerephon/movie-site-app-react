@@ -29,8 +29,8 @@ export const ShowMovie = ({
                             <Col md={6}>
                                 <Form.Label style={{ fontSize: '3em', fontFamily: 'monospace' }}>{movie.Title}</Form.Label>
                                 <div>
-                                    <p>{movie.Year}</p>
-                                    <p>{movie.Genre}</p>
+                                    <p><b>Year:</b> {movie.Year}</p>
+                                    <p><b>Genre:</b> {movie.Genre}</p>
                                 </div>
                                 <div>
                                     <p>
@@ -38,6 +38,9 @@ export const ShowMovie = ({
                                     </p>
                                     <p>
                                         <b>Writers:</b> <span>{movie.Writers}</span>
+                                    </p>
+                                    <p>
+                                        <b>Cast:</b> <span>{movie.Cast}</span>
                                     </p>
                                     <p>
                                         <b>Genre:</b> {movie.Genre}

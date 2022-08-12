@@ -13,7 +13,7 @@ import { UserAuthContextProvider } from './contexts/user-auth-context';
 import { MovieProvider } from './contexts/movie-context';
 import { lazy, Suspense } from 'react';
 
-const Profile = lazy(() => import('./components/profile/profile'));
+const Profile = lazy(() => import('./components/user-area/profile/profile'));
 const Catalog = lazy(() => import('./components/catalog/catalog'));
 
 function App() {

@@ -1,9 +1,8 @@
 import { Container, Row, Col, PopoverHeader, Form, Button, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import * as service from "../../lib/init-firebase";
+import * as service from "../../../lib/init-firebase";
 import { EditProfile } from "./edit-profile";
-import demoAvatar from '../../asset/demo-avatar.png';
 
 const Profile = () => {
     const { userID } = useParams();
@@ -145,8 +144,7 @@ const Profile = () => {
                                     <Card.Img
                                         style={{ width: '300px', height: '300px', border: "none", borderRadius: "0.1em" }}
                                         variant="top"
-                                        src={userData.photoURL || demoAvatar}
-                                       
+                                        src={userData.photoURL}       
                                     />
                                 </Card>
                             </Form.Group>

@@ -74,7 +74,6 @@ export const CreateMovie = ({
             e.preventDefault();
             const { ...userData } = value;
             Object.assign(userData, { Poster: downloadURL, OwnerId: user.uid });
-            console.log(userData);
             createMovie(userData);
             handleClose();
         }
@@ -96,6 +95,9 @@ export const CreateMovie = ({
             [e.target.name]: value[e.target.name].length > limit,
         }));
     }
+
+    const ifSomeErrors = !Object.values(errors).some(x => x)
+
 
     return (
         <Container>
@@ -264,6 +266,11 @@ export const CreateMovie = ({
                                         id="Poster"
                                         onChange={setUploadHandler}
                                     />
+                                    {imageUpload && 
+                                        <p className="form-error">
+                                            Don't forget to upload the poster!
+                                        </p>
+                                    }
                                     <Form.Control.Feedback type="invalid">
                                         Please upload a poster.
                                     </Form.Control.Feedback>
@@ -293,7 +300,7 @@ export const CreateMovie = ({
                             Close
                         </Button>
                         <Button
-                            disabled={!downloadURL ? true : false}
+                            disabled={!ifSomeErrors || (imageUpload && !downloadURL)}
                             type="submit"
                             style={{ background: "#2db4ea", border: 0 }}>
                             Add Movie

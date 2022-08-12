@@ -6,6 +6,7 @@ export const Search = ({
     onSearchChange,
     onSearchSubmit,
     handleSelect,
+    criteria
 }) => {
 
     return (
@@ -26,7 +27,7 @@ export const Search = ({
                 </Button>
                 <DropdownButton
                     variant="secondary"
-                    title="Search criteria"
+                    title={criteria}
                     id="dropdown-menu"
                     onSelect={handleSelect}
                     className="dropdown-style"

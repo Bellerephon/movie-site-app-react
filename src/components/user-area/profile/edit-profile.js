@@ -1,10 +1,9 @@
 import { Container, Row, Col, Form, Button, Card, ProgressBar, Modal } from "react-bootstrap";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../../lib/init-firebase";
 import { useState } from "react";
-import { editCollection } from "../../lib/init-firebase";
+import { editCollection, storage } from "../../../lib/init-firebase";
 import { states } from './states';
-import demoAvatar from '../../asset/demo-avatar.png';
+import demoAvatar from '../../../asset/demo-avatar.png';
 import './edit-profile.scss';
 
 export const EditProfile = ({ handleShow, handleClose, userData }) => {
@@ -78,6 +77,8 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
             [e.target.name]: value[e.target.name].length > limit,
         }));
     }
+
+    const ifSomeErrors = !Object.values(errors).some(x => x)
 
     return (
         <Container>
@@ -254,6 +255,7 @@ export const EditProfile = ({ handleShow, handleClose, userData }) => {
                             Cancel
                         </Button>
                         <Button
+                            disabled={!ifSomeErrors}
                             type="submit"
                             style={{ background: "#2db4ea", border: 0 }}>
                             Edit Profile

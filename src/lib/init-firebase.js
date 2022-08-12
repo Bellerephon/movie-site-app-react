@@ -69,7 +69,6 @@ export const getSearchMovies = async (collect, text, criteria) => {
   const collectionRef = collection(db, collect);
   const q = query(collectionRef, where(criteria, "==", text.trim()));
   const querySnapshot = await getDocs(q);
-  console.log(querySnapshot);
   querySnapshot.forEach((doc) => {
     searchData.push({ id: doc.id, ...doc.data() });
   });

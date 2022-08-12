@@ -18,6 +18,7 @@ Movie site app
     - [Deploy the product](#deploy-the-product)
   - [Languages and tools](#languages-and-tools)
   - [Built With](#built-with)
+  - [Live site](#live-site)
   - [Authors](#authors)
   
 ## What is the Movie site app?

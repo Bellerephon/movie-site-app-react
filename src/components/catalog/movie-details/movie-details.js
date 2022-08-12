@@ -31,7 +31,6 @@ export const MovieDetails = () => {
                         <Tabs
                             defaultActiveKey="details"
                             id="justify-tab-example"
-                            className="tab-button-style"
                             justify
                         >
                             <Tab eventKey="details" title="Details">

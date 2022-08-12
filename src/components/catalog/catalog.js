@@ -8,13 +8,12 @@ import { Search } from "./search";
 import { useState } from "react";
 
 const Catalog = () => {
-    const [ search, setSearch ] = useState('');
+    const [search, setSearch] = useState('');
     const { movies } = useMovieContext();
-    const [ searchMovies, setSearchMovies ] = useState();
-    const [ criteria, setCriteria ] = useState('');
-    const [ error, setError ] = useState(false)
-
-    const handleSelect=(e)=>{
+    const [searchMovies, setSearchMovies] = useState(null);
+    const [criteria, setCriteria] = useState('Criteria');
+    const [error, setError] = useState(false)
+    const handleSelect = (e) => {
         setCriteria(e)
     }
 
@@ -24,16 +23,16 @@ const Catalog = () => {
 
     const onSearchSubmit = (e) => {
         e.preventDefault();
-        if (search !== "" && criteria !== "") {
+        if (search !== "" && criteria !== "Criteria") {
             getSearchMovies("movies", search, criteria)
                 .then(res => setSearchMovies(res));
-                setError(false)
+            console.log(searchMovies);
+            setError(false)
+            setSearch('')
         }
-        else{
+        else {
             setError(true)
         }
-        setSearch('')
-        
     }
 
     return (
@@ -49,8 +48,9 @@ const Catalog = () => {
                 onSearchChange={onSearchChange}
                 onSearchSubmit={onSearchSubmit}
                 handleSelect={handleSelect}
+                criteria={criteria}
             />
-            {searchMovies ? 
+            {searchMovies ?
                 <Row className="py-5">
                     {searchMovies.map((movie) => (
                         <Movie
@@ -59,7 +59,7 @@ const Catalog = () => {
                         />
                     ))}
                 </Row>
-            : movies ?
+                :
                 <Row className="py-5">
                     {
                         movies.map((movie) => (
@@ -69,8 +69,7 @@ const Catalog = () => {
                             />
                         ))}
                 </Row>
-             : <h2>No articles yet</h2>
-            }                  
+            }
         </Container>
     )
 }

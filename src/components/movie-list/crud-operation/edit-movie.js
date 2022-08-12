@@ -78,6 +78,8 @@ export const EditMovie = ({
         }));
     }
 
+    const ifSomeErrors = !Object.values(errors).some(x => x)
+
     return (
         <Container>
             <Modal
@@ -205,6 +207,7 @@ export const EditMovie = ({
                             Cancel
                         </Button>
                         <Button
+                            disabled={!ifSomeErrors}
                             type="submit"
                             style={{ background: "#2db4ea", border: 0 }}>
                             Edit Movie

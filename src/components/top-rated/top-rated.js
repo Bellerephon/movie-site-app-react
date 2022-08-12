@@ -25,8 +25,6 @@ export const TopRated = () => {
         }, 500);
     }, [url]);
 
-    console.log(data);
-
     const prevPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage-1);
@@ -36,7 +34,6 @@ export const TopRated = () => {
     const nextPage = () => {
         if (currentPage < maxPages){
         setCurrentPage(currentPage+1)   
-        console.log(currentPage);
         }
     }
 
@@ -49,8 +46,6 @@ export const TopRated = () => {
             </div>
         );
     }
-
-    // console.log(topMovies.total_pages);
 
     return (
         <Container>
